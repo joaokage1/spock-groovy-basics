@@ -12,3 +12,4 @@
 - Helper methods
 - with()
 - verifyAll()
+- setup method

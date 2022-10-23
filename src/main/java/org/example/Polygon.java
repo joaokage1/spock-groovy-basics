@@ -1,10 +1,10 @@
 package org.example;
 
-class Polygon {
+public class Polygon {
     public final int numberOfSides;
     private Renderer renderer;
 
-    Polygon(int numberOfSides) {
+    public Polygon(int numberOfSides) {
         if (numberOfSides <= 2) {
             throw new TooFewSidesException("The shape must have more than 2 sides", numberOfSides);
         }
