@@ -30,4 +30,27 @@ class ExampleSpecification extends Specification{
         def exception = thrown(TooFewSidesException)
         exception.numberOfSides == 0
     }
+
+    def "should expect an Exception to be thrown for a number of invalid inputs: #sides"(){
+        when:
+        new Polygon(sides)
+
+        then:
+        def exception = thrown(TooFewSidesException)
+        exception.numberOfSides == sides
+
+        where:
+        sides << [-1, 0, 1, 2]
+    }
+
+    def "should be able to create a polygon with #sides sides"(){
+        when:
+        def polygon = new Polygon(sides)
+
+        then:
+        polygon.numberOfSides == sides
+
+        where:
+        sides << [3, 4, 5, 6]
+    }
 }
