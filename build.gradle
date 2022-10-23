@@ -1,5 +1,4 @@
 plugins {
-    id 'java'
     id 'groovy'
 }
 
@@ -11,15 +10,9 @@ repositories {
 }
 
 dependencies {
-    implementation 'org.projectlombok:lombok:1.18.22'
-
-
-    // https://mvnrepository.com/artifact/org.apache.groovy/groovy
-    testImplementation 'org.apache.groovy:groovy:4.0.6'
-
-    // https://mvnrepository.com/artifact/org.spockframework/spock-core
-    testImplementation 'org.spockframework:spock-core:2.3-groovy-4.0'
-
+    implementation 'org.projectlombok:lombok:1.18.24'
+    testImplementation 'org.spockframework:spock-core:2.0-groovy-3.0'
+    testImplementation 'org.codehaus.groovy:groovy-all:3.0.8'
 }
 
 test {
