@@ -1,0 +1,27 @@
+plugins {
+    id 'java'
+    id 'groovy'
+}
+
+group 'org.example'
+version '1.0-SNAPSHOT'
+
+repositories {
+    mavenCentral()
+}
+
+dependencies {
+    implementation 'org.projectlombok:lombok:1.18.22'
+
+
+    // https://mvnrepository.com/artifact/org.apache.groovy/groovy
+    testImplementation 'org.apache.groovy:groovy:4.0.6'
+
+    // https://mvnrepository.com/artifact/org.spockframework/spock-core
+    testImplementation 'org.spockframework:spock-core:2.3-groovy-4.0'
+
+}
+
+test {
+    useJUnitPlatform()
+}
