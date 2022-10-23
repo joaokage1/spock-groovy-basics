@@ -6,3 +6,7 @@
 - Data tables
 - Mock
 - Stubs
+
+## Features
+
+- Helper methods

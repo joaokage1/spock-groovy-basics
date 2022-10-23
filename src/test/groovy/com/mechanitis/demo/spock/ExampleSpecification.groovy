@@ -4,6 +4,7 @@ import org.example.Colour
 import org.example.Palette
 import org.example.Polygon
 import org.example.Renderer
+import org.example.ShapeFactory
 import org.example.TooFewSidesException
 import spock.lang.Specification
 import spock.lang.Subject
@@ -87,5 +88,22 @@ class ExampleSpecification extends Specification{
 
         expect:
         renderer.getForegroundColour() == Colour.Red
+    }
+
+    def "should use a helper method"(){
+        given:
+        def renderer = Mock(Renderer)
+        def shapeFactory = new ShapeFactory(renderer)
+
+        when:
+        def polygon = shapeFactory.createDefaultPolygon()
+
+        then:
+        checkDegaultShape(polygon,renderer)
+    }
+
+    private void checkDegaultShape(Polygon polygon, Renderer renderer){
+        assert polygon.numberOfSides == 4
+        assert polygon.renderer == renderer
     }
 }
