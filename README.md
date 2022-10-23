@@ -5,3 +5,4 @@
 - Data pipes
 - Data tables
 - Mock
+- Stubs

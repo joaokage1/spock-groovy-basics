@@ -1,9 +1,12 @@
 package com.mechanitis.demo.spock
 
+import org.example.Colour
+import org.example.Palette
 import org.example.Polygon
 import org.example.Renderer
 import org.example.TooFewSidesException
 import spock.lang.Specification
+import spock.lang.Subject
 
 
 class ExampleSpecification extends Specification{
@@ -65,6 +68,7 @@ class ExampleSpecification extends Specification{
     def "should be able to mock a concrete class"(){
         given:
         def renderer = Mock(Renderer)
+        @Subject
         def polygon = new Polygon(4, renderer)
 
         when:
@@ -72,5 +76,16 @@ class ExampleSpecification extends Specification{
 
         then:
         4 * renderer.drawLine()
+    }
+
+    def "should be able to create a stub"(){
+        given:
+        def palette = Stub(Palette)
+        palette.getPrimaryColour() >> Colour.Red
+        @Subject
+        def renderer = new Renderer(palette)
+
+        expect:
+        renderer.getForegroundColour() == Colour.Red
     }
 }
