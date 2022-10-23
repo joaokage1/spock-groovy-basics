@@ -106,4 +106,19 @@ class ExampleSpecification extends Specification{
         assert polygon.numberOfSides == 4
         assert polygon.renderer == renderer
     }
+
+    def "should use with() method"(){
+        given:
+        def renderer = Mock(Renderer)
+        def shapeFactory = new ShapeFactory(renderer)
+
+        when:
+        def polygon = shapeFactory.createDefaultPolygon()
+
+        then:
+        with(polygon) {
+            numberOfSides == 4
+            renderer == renderer
+        }
+    }
 }

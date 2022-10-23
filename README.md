@@ -10,3 +10,4 @@
 ## Features
 
 - Helper methods
+- with()
