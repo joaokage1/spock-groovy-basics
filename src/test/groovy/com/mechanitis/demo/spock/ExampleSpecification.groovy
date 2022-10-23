@@ -44,13 +44,20 @@ class ExampleSpecification extends Specification{
     }
 
     def "should be able to create a polygon with #sides sides"(){
-        when:
-        def polygon = new Polygon(sides)
-
-        then:
-        polygon.numberOfSides == sides
+        expect:
+        new Polygon(sides).numberOfSides == sides
 
         where:
         sides << [3, 4, 5, 6]
+    }
+
+    def "should use data tables for calculating max"(){
+        expect: Math.max(a, b) == max
+
+        where:
+        a | b | max
+        1 | 3 | 3
+        7 | 4 | 7
+        0 | 0 | 0
     }
 }
