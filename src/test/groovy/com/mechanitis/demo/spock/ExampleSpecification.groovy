@@ -107,7 +107,7 @@ class ExampleSpecification extends Specification{
         assert polygon.renderer == renderer
     }
 
-    def "should use with() method"(){
+    def "should use with() + verifyAll() method"(){
         given:
         def renderer = Mock(Renderer)
         def shapeFactory = new ShapeFactory(renderer)
@@ -117,6 +117,11 @@ class ExampleSpecification extends Specification{
 
         then:
         with(polygon) {
+            numberOfSides == 4
+            renderer == renderer
+        }
+        //Will verify all assertions
+        verifyAll (polygon) {
             numberOfSides == 4
             renderer == renderer
         }

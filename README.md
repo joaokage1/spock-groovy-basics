@@ -11,3 +11,4 @@
 
 - Helper methods
 - with()
+- verifyAll()
